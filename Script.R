@@ -167,20 +167,14 @@ consolidated_data <- consolidated_data %>%
   mutate(
     Delta_Price = (Price - lag(Price))/lag(Price),
     Delta_Somma_PNC = (Somma_PNC - lag(Somma_PNC))/lag(Somma_PNC)
-  ) #%>% 
-  #filter(!is.na(Delta_Price))  %>% 
+  ) %>% 
+  filter(!is.na(Delta_Price))  %>% 
   #filter(!is.na(Delta_Somma_PNC)) %>% 
   #filter(!is.infinite (Delta_Somma_PNC))
 
 
-a <- consolidated_data %>% 
-  filter(!is.na(Delta_Price)) 
-
-cor (consolidated_data$Price, consolidated_data$Somma_PNC)
+# analysis to restart from here.
 cor (consolidated_data$Delta_Price, consolidated_data$Somma_PNC)
 
-cor (consolidated_data$Delta_Price, consolidated_data$Delta_Somma_PNC)
-
-cor (a$Delta_Price, a$Somma_PNC)
 
 ?cor
